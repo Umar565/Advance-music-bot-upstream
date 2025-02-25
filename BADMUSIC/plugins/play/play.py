@@ -419,19 +419,19 @@ async def play_commnd(
                         details["duration_min"],
                     )
                 )
-        else:
-            buttons = livestream_markup(
-                _,
-                track_id,
-                user_id,
-                "v" if video else "a",
-                "c" if channel else "g",
-                "f" if fplay else "d",
-            )
-            return await mystic.edit_text(
-                _["play_15"],
-                reply_markup=InlineKeyboardMarkup(buttons),
-            )
+            else:
+                buttons = livestream_markup(
+                    _,
+                    track_id,
+                    user_id,
+                    "v" if video else "a",
+                    "c" if channel else "g",
+                    "f" if fplay else "d",
+                )
+                return await mystic.edit_text(
+                    _["play_15"],
+                    reply_markup=InlineKeyboardMarkup(buttons),
+                )
         try:
             await stream(
                 _,
@@ -448,13 +448,105 @@ async def play_commnd(
             )
         except Exception as e:
             ex_type = type(e).__name__
-            if ex_type == "AssistantErr":
-                err = e
+            err = e if ex_type == "AssistantErr" else _["general_3"].format(ex_type)
+            LOGGER(__name__).error(f"{ex_type} {e}")
+            try:
+                return await mystic.edit_text(err)
+            except FloodWait as e:
+                await asyncio.sleep(e.value)
+        await mystic.delete()
+        return await play_logs(message, streamtype=streamtype)
+    else:
+        if plist_type:
+            ran_hash = "".join(
+                random.choices(string.ascii_uppercase + string.digits, k=10)
+            )
+            lyrical[ran_hash] = plist_id
+            buttons = playlist_markup(
+                _,
+                ran_hash,
+                message.from_user.id,
+                plist_type,
+                "c" if channel else "g",
+                "f" if fplay else "d",
+            )
+            await mystic.delete()
+            await message.reply_photo(
+                photo=img,
+                caption=cap,
+                reply_markup=InlineKeyboardMarkup(buttons),
+            )
+            return await play_logs(message, streamtype=f"Playlist : {plist_type}")
+        else:
+            if slider:
+                buttons = slider_markup(
+                    _,
+                    track_id,
+                    message.from_user.id,
+                    query,
+                    0,
+                    "c" if channel else "g",
+                    "f" if fplay else "d",
+                )
+                await mystic.delete()
+                await message.reply_photo(
+                    photo=details["thumb"],
+                    caption=_["play_11"].format(
+                        details["title"].title(),
+                        details["duration_min"],
+                    ),
+                    reply_markup=InlineKeyboardMarkup(buttons),
+                )
+                return await play_logs(message, streamtype=f"Searched on Youtube")
             else:
-                LOGGER(__name__).error("An error occurred", exc_info=True)
-
-                err = _["general_3"].format(ex_type)
-            return await mystic.edit_text(err)
+                buttons = track_markup(
+                    _,
+                    track_id,
+                    message.from_user.id,
+                    "c" if channel else "g",
+                    "f" if fplay else "d",
+                )
+                await mystic.delete()
+                await message.reply_photo(
+                    photo=img,
+                    caption=cap,
+                    reply_markup=InlineKeyboardMarkup(buttons),
+                )
+                return await play_logs(message, streamtype=f"URL Searched Inline")else:
+                buttons = livestream_markup(
+                    _,
+                    track_id,
+                    user_id,
+                    "v" if video else "a",
+                    "c" if channel else "g",
+                    "f" if fplay else "d",
+                )
+                return await mystic.edit_text(
+                    _["play_15"],
+                    reply_markup=InlineKeyboardMarkup(buttons),
+                )
+        try:
+            await stream(
+                _,
+                mystic,
+                user_id,
+                details,
+                chat_id,
+                user_name,
+                message.chat.id,
+                video=video,
+                streamtype=streamtype,
+                spotify=spotify,
+                forceplay=fplay,
+            )
+        except Exception as e:
+            ex_type = type(e).__name__
+            err = e if ex_type == "AssistantErr" else _["general_3"].format(ex_type)
+            LOGGER(__name__).error(f"{ex_type} {e}")
+            try:
+                return await mystic.edit_text(err)
+            except FloodWait as e:
+                await asyncio.sleep(e.value)
         await mystic.delete()
         return await play_logs(message, streamtype=streamtype)
     else:
@@ -514,7 +606,6 @@ async def play_commnd(
                     reply_markup=InlineKeyboardMarkup(buttons),
                 )
                 return await play_logs(message, streamtype=f"URL Searched Inline")
-
 
 __MODULE__ = "ᴘʟᴀʏ"
 __HELP__ = """
