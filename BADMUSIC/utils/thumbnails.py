@@ -162,7 +162,7 @@ async def get_thumb(videoid):
 
 
     
-async def gen_thumb(videoid):
+"""async def gen_thumb(videoid):
     if os.path.isfile(f"cache/{videoid}_v4.png"):
         return f"cache/{videoid}_v4.png"
 
@@ -254,8 +254,18 @@ async def gen_thumb(videoid):
     except:
         pass
     background.save(f"cache/{videoid}_v4.png")
-    return f"cache/{videoid}_v4.png"
+    return f"cache/{videoid}_v4.png" """
 
+async def gen_thumb(videoid):
+    try:
+        query = f"https://www.youtube.com/watch?v={videoid}"
+        results = VideosSearch(query, limit=1)
+        for result in (await results.next())["result"]:
+            thumbnail = result["thumbnails"][0]["url"].split("?")[0]
+        return thumbnail
+    except Exception as e:
+        return YOUTUBE_IMG_URL
+        
 async def gen_qthumb(videoid):
     if os.path.isfile(f"cache/{videoid}_v4.png"):
         return f"cache/{videoid}_v4.png"
