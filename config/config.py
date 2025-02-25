@@ -10,26 +10,26 @@ load_dotenv()
 
 # Get it from my.telegram.org
 
-API_ID = int(getenv("API_ID", ""))
+API_ID = int(getenv("API_ID", "21404766"))
 
-API_HASH = getenv("API_HASH")
+API_HASH = getenv("API_HASH", "3363e6cbefba6db06baa6710c192d71e")
 
 
 ## Get it from @Botfather in Telegram.
-BOT_TOKEN = getenv("BOT_TOKEN")
+BOT_TOKEN = getenv("BOT_TOKEN", "7485171019:AAHln_a5FzRMsN_GHP3_3l6PEVC6Gwv8EPo")
 
 # Get Your bot username
-BOT_USERNAME = getenv("BOT_USERNAME" , "FlopMusic_Bot")
+BOT_USERNAME = getenv("BOT_USERNAME" , "Ronak_Music_bot")
 
 # Bot id
-BOT_ID = int(getenv("BOT_ID", "7634367413"))
+BOT_ID = int(getenv("BOT_ID", "7485171019"))
 
 # Token allow for access youtube songs. [ True = use token data, False = use cookies ]
 TOKEN_ALLOW = os.getenv("TOKEN_ALLOW", "False")
 
 # Database to save your chats and stats... Get MongoDB:-  https://telegra.ph/How-To-get-Mongodb-URI-04-06
-DB_NAME = "badDB"
-MONGO_DB_URI = getenv("MONGO_DB_URI", None)
+DB_NAME = "sparkDB"
+MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://Aichatbot:seconddb2@cluster0.itzpj.mongodb.net/")
 
 # Time zone (india)
 TIME_ZONE = "Asia/Kolkata"
@@ -56,7 +56,7 @@ EXTRA_PLUGINS = getenv(
 
 EXTRA_PLUGINS_REPO = getenv(
     "EXTRA_PLUGINS_REPO",
-    "https://github.com/Badhacker98/BADMUSIC_PLUGIN",
+    "https://github.com/umar2111k/Misc-Bot-2_PLUGIN",
 )
 # Fill here the external plugins repo where plugins that you want to load
 
@@ -73,12 +73,12 @@ SONG_DOWNLOAD_DURATION = int(
 
 
 # You'll need a Private Group ID for this.
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", ""))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002495188807"))
 
 
 # Your User ID.
 OWNER_ID = list(
-    map(int, getenv("OWNER_ID", "7009601543").split())
+    map(int, getenv("OWNER_ID", "6170050819").split())
 )  # Input type must be interger
 
 
@@ -90,10 +90,10 @@ PRIVACY_LINK = getenv(
 
 
 # Get it from http://dashboard.heroku.com/account
-HEROKU_API_KEY = getenv("HEROKU_API_KEY")
+HEROKU_API_KEY = getenv("HEROKU_API_KEY", "HRKU-1a731bb8-0840-4c6d-9293-597e5f49a6fe")
 
 # You have to Enter the app name which you gave to identify your  Music Bot in Heroku.
-HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
+HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", "musicbot2")
 
 
 # For customized or modified Repository
@@ -112,14 +112,14 @@ GIT_TOKEN = getenv(
 
 # Only  Links formats are  accepted for this Var value.
 SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/HEROKUBIN_01"
+    "SUPPORT_CHANNEL", "https://t.me/Spark_Developer_Bots"
 )  # Example:- https://t.me/HEROKUBIN_01
 SUPPORT_GROUP = getenv(
-    "SUPPORT_GROUP", "https://t.me/PBX_CHAT"
+    "SUPPORT_GROUP", "https://t.me/+Vej6cDIE4J9jNzJl"
 )  # Example:- https://t.me/TG_FRIENDSS
 
 SUPPORT_CHAT = getenv(
-    "SUPPORT_GROUP", "https://t.me/PBX_CHAT"
+    "SUPPORT_GROUP", "https://t.me/Spark_Developer_Support_bot"
 )  # Example:- https://t.me/TG_FRIENDSS
 # Set it in True if you want to leave your assistant after a certain amount of time. [Set time via AUTO_LEAVE_ASSISTANT_TIME]
 AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", False)
@@ -142,13 +142,13 @@ TELEGRAM_DOWNLOAD_EDIT_SLEEP = int(getenv("TELEGRAM_EDIT_SLEEP", "5"))
 
 
 # Your Github Repo.. Will be shown on /start Command
-GITHUB_REPO = getenv("GITHUB_REPO", "https://github.com/Badhacker98/BADMUSIC")
+GITHUB_REPO = getenv("GITHUB_REPO", "https://t.me/Spark_Developer")
 
 
 # Spotify Client.. Get it from https://developer.spotify.com/dashboard
-SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", "19609edb1b9f4ed7be0c8c1342039362")
+SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", "19d2fe49f79143fa90e75be9c95255db")
 SPOTIFY_CLIENT_SECRET = getenv(
-    "SPOTIFY_CLIENT_SECRET", "409e31d3ddd64af08cfcc3b0f064fcbe"
+    "SPOTIFY_CLIENT_SECRET", "9e3e42756a8040a89424e7bf3343fa19"
 )
 
 
@@ -178,7 +178,7 @@ TG_VIDEO_FILESIZE_LIMIT = int(
 
 # If you want your bot to setup the commands automatically in the bot's menu set it to true.
 # Refer to https://i.postimg.cc/Bbg3LQTG/image.png
-SET_CMDS = getenv("SET_CMDS", "False")
+SET_CMDS = getenv("SET_CMDS", "True")
 
 
 # You'll need a Pyrogram String Session for these vars. Generate String from our session generator bot @VIPStringBot
@@ -192,7 +192,7 @@ STRING5 = getenv("STRING_SESSION5", None)
 BANNED_USERS = filters.user()
 YTDOWNLOADER = 1
 LOG = 2
-LOG_FILE_NAME = "BADlogs.txt"
+LOG_FILE_NAME = "SPARKlogs.txt"
 TEMP_DB_FOLDER = "tempdb"
 adminlist = {}
 lyrical = {}
@@ -390,4 +390,4 @@ if TELEGRAM_VIDEO_URL:
         if not re.match("(?:http|https)://", TELEGRAM_VIDEO_URL):
             print(
                 "[ERROR] - Your TELEGRAM_VIDEO_URL url is wrong. Please ensure that it starts with https://"
-            )
+)
