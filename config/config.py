@@ -90,10 +90,10 @@ PRIVACY_LINK = getenv(
 
 
 # Get it from http://dashboard.heroku.com/account
-HEROKU_API_KEY = getenv("HEROKU_API_KEY", "HRKU-1a731bb8-0840-4c6d-9293-597e5f49a6fe")
+HEROKU_API_KEY = getenv("HEROKU_API_KEY", "HRKU-52a1bbc3-8b4a-40a9-b292-e07b7bb6f0fc")
 
 # You have to Enter the app name which you gave to identify your  Music Bot in Heroku.
-HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", "musicbot2")
+HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", "ronakmusic")
 
 
 # For customized or modified Repository
@@ -131,7 +131,7 @@ AUTO_LEAVE_ASSISTANT_TIME = int(
 
 
 # Set it true if you want your bot to be private only [You'll need to allow CHAT_ID via /authorize command then only your bot will play music in that chat.]
-PRIVATE_BOT_MODE = getenv("PRIVATE_BOT_MODE", "False")
+PRIVATE_BOT_MODE = getenv("PRIVATE_BOT_MODE", "True")
 
 
 # Time sleep duration For Youtube Downloader
@@ -182,7 +182,7 @@ SET_CMDS = getenv("SET_CMDS", "True")
 
 
 # You'll need a Pyrogram String Session for these vars. Generate String from our session generator bot @VIPStringBot
-STRING1 = getenv("STRING_SESSION", None)
+STRING1 = getenv("STRING_SESSION", "BQFGnF4AMohFtOkXCZjmGugKvDJdmzGevlJFv5-eO0A6Vpsbdj58uUgNwXjxbGhuom_G7CbQinGXeKByXBUVp8vT-EqVh00YaKk0NCKEIK8ys1KNcbnc7ptSzK1ZKm__Kfl_ZSNfH2Ko0A058JGC4oHYdkO5YUlr1N6xHJ8P8_QKyfL25I8vCUT9r8ouDgJu8E3O8FJ0T8H2oGKqYs1PzZFN1UiOwn_UJid6h-kmTO3_97iD9l_EBVPMvoTun-TJS7oDzfw3dvz14Wn1oaTFWoQUDQgsJhI2TAVk8x0utggFRPmYpJ2lZHc0RsWyGqBqTfkOnyAS88ZON5m_dibUgpYggFLe1AAAAAHd6a6pAA")
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
