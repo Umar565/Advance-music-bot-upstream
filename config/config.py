@@ -99,7 +99,7 @@ HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", "ronakmusic")
 # For customized or modified Repository
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/Badhacker98/BADMUSIC",
+    "https://github.com/legendtosif/AAROHI",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "Bad")
 
