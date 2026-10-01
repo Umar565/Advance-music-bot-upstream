@@ -12,8 +12,12 @@ import config
 
 from ..logging import LOGGER
 
-loop = asyncio.get_event_loop_policy().get_event_loop()
-
+#loop = asyncio.get_event_loop_policy().get_event_loop()
+try:
+    loop = asyncio.get_event_loop()
+except RuntimeError:
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
 
 def install_req(cmd: str) -> Tuple[str, str, int, int]:
     async def install_requirements():
