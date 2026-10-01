@@ -29,7 +29,7 @@ TOKEN_ALLOW = os.getenv("TOKEN_ALLOW", "False")
 
 # Database to save your chats and stats... Get MongoDB:-  https://telegra.ph/How-To-get-Mongodb-URI-04-06
 DB_NAME = "sparkDB"
-MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://Aichatbot:seconddb2@cluster0.itzpj.mongodb.net/")
+MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://garixo5821_db_user:QjGrPUmXeoIacgWF@cluster0.o0l1rqr.mongodb.net/")
 
 # Time zone (india)
 TIME_ZONE = "Asia/Kolkata"
