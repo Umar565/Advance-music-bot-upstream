@@ -42,4 +42,4 @@ youtube-search-python
 git+https://github.com/KurimuzonAkuma/pyrogram
 git+https://github.com/TelegramPlayGround/pyrogram-tgcrypto
 git+https://gitlab.com/badmunda98/BadAPI.git
-git+https://github.com/TheChampu/TheAPI
+git+https://github.com/TheChampu/TheAPI@main
