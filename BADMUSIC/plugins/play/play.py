@@ -512,7 +512,8 @@ async def play_commnd(
                     caption=cap,
                     reply_markup=InlineKeyboardMarkup(buttons),
                 )
-                return await play_logs(message, streamtype=f"URL Searched Inline")else:
+                return await play_logs(message, streamtype=f"URL Searched Inline")
+            else:
                 buttons = livestream_markup(
                     _,
                     track_id,
