@@ -42,5 +42,5 @@ youtube-search-python
 lxml_html_clean
 git+https://github.com/KurimuzonAkuma/pyrogram
 git+https://github.com/TelegramPlayGround/pyrogram-tgcrypto
-git+https://gitlab.com/badmunda98/BadAPI.git
+git+https://github.com/Umar565/BadAPI.git
 git+https://github.com/TheChampu/TheAPI@main
